@@ -14,12 +14,16 @@ public class ClassController {
 		this.connection = connection;
 	}
 
+	/**
+	 * Método para buscar todos los operator que tenga
+	 * @param id Variable que sera el punto de busqueda
+	 * @throws SQLException Para que no pete
+	 */
 	public void buscarC(String id) throws SQLException {
 
 		Statement st = connection.createStatement();
 		ResultSet rs;
 		String booleanBonito;
-
 		rs = st.executeQuery("SELECT operator.name,operator.position_op,operator.attack,operator.alter_op FROM class INNER JOIN operator ON class.id_combo=operator.class WHERE id_combo='" + id + "'");
 		while (rs.next()) {
 			booleanBonito = (rs.getString("alter_op").equals("t")) ? "Si" : "No";
@@ -32,6 +36,10 @@ public class ClassController {
 		st.close();
 	}
 
+	/**
+	 * Método donde se leera el CSV y lo colocaran con INSERT a la clase correspondiente
+	 * @throws SQLException Para que no pete
+	 */
 	void insertsTodoC() throws SQLException {
 		String csvFile = "resources/ArknightsScraperClass.csv";
 		String insertQuery = "INSERT INTO class VALUES (?, ?)";
@@ -48,6 +56,7 @@ public class ClassController {
 			e.printStackTrace();
 		}
 	}
+
 	void borrarTodoC() throws SQLException {
 		String insertQuery = "DELETE FROM class";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {

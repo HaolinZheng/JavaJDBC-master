@@ -63,4 +63,41 @@ public class SkillController {
 		rs.close();
 		st.close();
 	}
+
+    public void buscarS(String columna, String pedir) throws SQLException {
+
+		Statement st = connection.createStatement();
+		ResultSet rs;
+		String booleanBonito;
+
+		rs = st.executeQuery("SELECT * FROM skill WHERE " + columna + "='" + pedir + "'");
+		while (rs.next()) {
+			booleanBonito = (rs.getString("alter_op").equals("t")) ? "Si" : "No";
+			System.out.println("Operador: " + rs.getString("operator_name") + " " +
+					"Nombre: " + rs.getString("name") + " " +
+					"Tipo de recarga: " + rs.getString("charge") + " " +
+					"Duracion: " + rs.getString("duration") + " " +
+					"Coste: " + rs.getString("cost") + " " +
+					"Coste inicial: " + rs.getString("initial") + " " +
+					"Automatico?: " + booleanBonito);
+		}
+    }
+
+	public void borrarS(String columna, String pedir) {
+		String insertQuery = "DELETE FROM skill WHERE " + columna + "='" + pedir + "'";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void modificarS(String columna, String pedir, String replazo) {
+		String insertQuery = "UPDATE FROM class " + "SET ='" + replazo + "' WHERE " + columna + "='" + pedir + "'";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

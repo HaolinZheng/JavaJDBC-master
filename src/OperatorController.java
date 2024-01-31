@@ -9,7 +9,7 @@ import java.util.List;
 public class OperatorController {
 
 	private Connection connection;
-	
+
 	public OperatorController(Connection connection) {
 		this.connection = connection;
 	}
@@ -58,7 +58,7 @@ public class OperatorController {
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 			preparedStatement.executeUpdate();
 		}
-    }
+	}
 
 	public void buscarO(String columna, String pedir) throws SQLException {
 
@@ -74,6 +74,24 @@ public class OperatorController {
 					"Tipo de ataque: " + rs.getString("attack") + " " +
 					"Tiene Alters?: " + booleanBonito + " " +
 					"Clase: " + rs.getString("primary_secondary"));
+		}
+	}
+
+	public void borrarO(String columna, String pedir) {
+		String insertQuery = "DELETE FROM operator WHERE " + columna + "='" + pedir + "'";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void modificarO(String columna, String pedir, String replazo) {
+		String insertQuery = "UPDATE operator " + "SET " + columna + " ='" + replazo + "' WHERE " + columna + " ='" + pedir + "'";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

@@ -17,26 +17,22 @@ public class ACBMenu {
 			System.out.println(" \nMENU PRINCIPAL \n");
 			System.out.println("1. Mostra clases");
 			System.out.println("2. Buscar operator por clase");
-			System.out.println("3. Crear nueva clases");
-			System.out.println("4. Crear clases mediante CSV");
-			System.out.println("5. Modificar clase por ID");
-			System.out.println("6. Borrar clases por ID");
-			System.out.println("7. Borrar todas las clases");
-			System.out.println("8. Mostra operadores");
-			System.out.println("9. Buscar operador");
-			System.out.println("10. Crear nuevo operador");
-			System.out.println("11. Crear operadores mediante CSV");
-			System.out.println("12. Modificar operador");
-			System.out.println("13. Borrar operador");
-			System.out.println("14. Borrar todas los operadores");
-			System.out.println("15. Mostra habilidades");
-			System.out.println("16. Buscar habilidad");
-			System.out.println("17. Crear nuevo habilidad");
-			System.out.println("18. Crear habilidades mediante CSV");
-			System.out.println("19. Modificar habilidad");
-			System.out.println("20. Borrar habilidad");
-			System.out.println("21. Borrar todas las habilidades");
-			System.out.println("22. Salir");
+			System.out.println("3. Crear clases mediante CSV");
+			System.out.println("4. Borrar clases por ID (Incluyendo todos los relacionados de la clase \"operator\" seran borrados + habilidades)");
+			System.out.println("5. Borrar todas las clases(Incluyendo todos los de la clase \"operator\" seran borrados + habilidades)");
+			System.out.println("6. Mostra operadores");
+			System.out.println("7. Buscar operador");
+			System.out.println("8. Crear operadores mediante CSV");
+			System.out.println("9. Modificar operador");
+			System.out.println("10. Borrar operador (Incluyendo todos los relacionados de la clase \"habilidades\" seran borrados)");
+			System.out.println("11. Borrar todas los operadores (Incluyendo todos los relacionados de la clase \"habilidades\" seran borrados)");
+			System.out.println("12. Mostra habilidades");
+			System.out.println("13. Buscar habilidad");
+			System.out.println("14. Crear habilidades mediante CSV");
+			System.out.println("15. Modificar habilidad");
+			System.out.println("16. Borrar habilidad");
+			System.out.println("17. Borrar todas las habilidades");
+			System.out.println("18. Salir");
 			System.out.println("Elige: ");
 			try {
 				option = Integer.parseInt(br.readLine());
@@ -44,7 +40,7 @@ public class ACBMenu {
 				System.out.println("valor no vàlid");
 				e.printStackTrace();
 			}
-		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9 && option != 10 && option != 11 && option != 12 && option != 13 && option != 14 && option != 15 && option != 16 && option != 17 && option != 18 && option != 19 && option != 20 && option != 21 && option != 22);
+		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9 && option != 10 && option != 11 && option != 12 && option != 13 && option != 14 && option != 15 && option != 16 && option != 17 && option != 18);
 		return option;
 	}
 
@@ -59,8 +55,7 @@ public class ACBMenu {
 			System.out.println("6. Specialist");
 			System.out.println("7. Supporter");
 			System.out.println("8. Vanguard");
-			System.out.println("9. Es uno personalizado");
-			System.out.println("10. Salir");
+			System.out.println("9. Salir");
 			System.out.println("Elige: ");
 			try {
 				option = Integer.parseInt(br.readLine());
@@ -270,7 +265,36 @@ public class ACBMenu {
 
 	public String pedir() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Escriba lo quieres buscar");
+		System.out.println("Escriba con que quieres buscar");
+		optionS = br.readLine();
+		return optionS;
+	}
+
+	public String pedirS() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		do {
+			System.out.println("operator_name");
+			System.out.println("name");
+			System.out.println("charge");
+			System.out.println("duration");
+			System.out.println("cost");
+			System.out.println("initial");
+			System.out.println("auto");
+			System.out.println("Escriba \"salir\" para salir");
+			System.out.println("Elige: ");
+			try {
+				optionS = br.readLine();
+			} catch (NumberFormatException | IOException e) {
+				System.out.println("valor no vàlid");
+				e.printStackTrace();
+			}
+		} while (!optionS.equals("operator_name") && !optionS.equals("name") && !optionS.equals("charge") && !optionS.equals("duration") && !optionS.equals("cost") && !optionS.equals("initial") && !optionS.equals("auto"));
+		return optionS;
+	}
+
+	public String cambio() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Escriba como lo quieres cambiar");
 		optionS = br.readLine();
 		return optionS;
 	}

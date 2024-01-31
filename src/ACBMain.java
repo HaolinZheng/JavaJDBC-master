@@ -32,17 +32,13 @@ public class ACBMain {
 					case 6 -> classController.buscarC(menu.specialistMenu(primary));
 					case 7 -> classController.buscarC(menu.supporterMenu(primary));
 					case 8 -> classController.buscarC(menu.vanguardMenu(primary));
-					case 9 -> classController.buscarC("9");
+					case 9 -> {}
 				}
 				break;
 			case 3:
-				break;
-			case 4:
 				classController.insertsTodoC();
 				break;
-			case 5:
-				break;
-			case 6:
+			case 4:
 				primary = menu.primaryMenu();
 				switch (primary) {
 					case 1 -> classController.borrarC(menu.casterMenu(primary));
@@ -53,48 +49,49 @@ public class ACBMain {
 					case 6 -> classController.borrarC(menu.specialistMenu(primary));
 					case 7 -> classController.borrarC(menu.supporterMenu(primary));
 					case 8 -> classController.borrarC(menu.vanguardMenu(primary));
-					case 9 -> classController.borrarC("9");
+					case 9 -> {}
 				}
 				break;
-			case 7:
+			case 5:
 				classController.borrarTodoC();
 				break;
-			case 8:
+			case 6:
 				operatorController.mostrarO();
 				break;
-			case 9:
+			case 7:
 				operatorController.buscarO(menu.pedirO(),menu.pedir());
 				break;
-			case 10:
-				break;
-			case 11:
+			case 8:
 				operatorController.insertsTodoO();
 				break;
-			case 12:
+			case 9:
+				operatorController.modificarO(menu.pedirO(),menu.pedir(), menu.cambio());
 				break;
-			case 13:
+			case 10:
+				operatorController.borrarO(menu.pedirO(),menu.pedir());
 				break;
-			case 14:
+			case 11:
 				operatorController.borrarTodoO();
 				break;
-			case 15:
+			case 12:
 				skillController.mostrarS();
 				break;
-			case 16:
+			case 13:
+				skillController.buscarS(menu.pedirS(),menu.pedir());
 				break;
-			case 17:
-				break;
-			case 18:
+			case 14:
 				skillController.insertsTodoS();
 				break;
-			case 19:
+			case 15:
+				skillController.modificarS(menu.pedirS(),menu.pedir(), menu.cambio());
 				break;
-			case 20:
+			case 16:
+				skillController.borrarS(menu.pedirS(),menu.pedir());
 				break;
-			case 21:
+			case 17:
 				skillController.borrarTodoS();
 				break;
-			case 22:
+			case 18:
 				System.exit(0);
 				break;
 			default:
