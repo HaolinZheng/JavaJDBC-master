@@ -13,7 +13,10 @@ public class OperatorController {
 	public OperatorController(Connection connection) {
 		this.connection = connection;
 	}
-
+	/**
+	 * Lista todos los datos que contiene esta tabla
+	 * @throws SQLException Para que no pete
+	 */
 	public void mostrarO() throws SQLException {
 
 		Statement st = connection.createStatement();
@@ -32,7 +35,10 @@ public class OperatorController {
 		rs.close();
 		st.close();
 	}
-
+	/**
+	 * Método donde se leera el CSV y lo colocaran con INSERT a la clase correspondiente
+	 * @throws SQLException Para que no pete
+	 */
 	void insertsTodoO() throws SQLException {
 		String csvFile = "resources/ArknightsScraperOperator.csv";
 		String insertQuery = "INSERT INTO operator VALUES (?, ?, ?, ? ,?)";
@@ -52,16 +58,23 @@ public class OperatorController {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Método donde borrara todos los datos de la clase seleccionada
+	 * @throws SQLException Para que no pete
+	 */
 	void borrarTodoO() throws SQLException {
 		String insertQuery = "DELETE FROM operator";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 			preparedStatement.executeUpdate();
 		}
 	}
-
+	/**
+	 * Método para buscar todos los operator que tenga
+	 * @param columna Por cual columna quieres filtrar
+	 * @param pedir Parametro que pide para filtrar
+	 * @throws SQLException Para que no pete
+	 */
 	public void buscarO(String columna, String pedir) throws SQLException {
-
 		Statement st = connection.createStatement();
 		ResultSet rs;
 		String booleanBonito;
@@ -76,7 +89,11 @@ public class OperatorController {
 					"Clase: " + rs.getString("primary_secondary"));
 		}
 	}
-
+	/**
+	 * Borra el dato que quiera el usuario
+	 * @param columna Por cual columna quieres filtrar
+	 * @param pedir Parametro que pide para filtrar
+	 */
 	public void borrarO(String columna, String pedir) {
 		String insertQuery = "DELETE FROM operator WHERE " + columna + "='" + pedir + "'";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
@@ -85,7 +102,12 @@ public class OperatorController {
 			throw new RuntimeException(e);
 		}
 	}
-
+	/**
+	 * Modifica el dato que quiera el usuario
+	 * @param columna Por cual columna quieres filtrar
+	 * @param pedir Parametro que pide para filtrar
+	 * @param replazo Parametro que pide para cambiar
+	 */
 	public void modificarO(String columna, String pedir, String replazo) {
 		String insertQuery = "UPDATE operator " + "SET " + columna + " ='" + replazo + "' WHERE " + columna + " ='" + pedir + "'";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {

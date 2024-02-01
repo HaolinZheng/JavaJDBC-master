@@ -13,7 +13,6 @@ public class ClassController {
 	public ClassController(Connection connection) {
 		this.connection = connection;
 	}
-
 	/**
 	 * Método para buscar todos los operator que tenga
 	 * @param id Variable que sera el punto de busqueda
@@ -35,7 +34,6 @@ public class ClassController {
 		rs.close();
 		st.close();
 	}
-
 	/**
 	 * Método donde se leera el CSV y lo colocaran con INSERT a la clase correspondiente
 	 * @throws SQLException Para que no pete
@@ -56,14 +54,20 @@ public class ClassController {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Método donde borrara todos los datos de la clase seleccionada
+	 * @throws SQLException Para que no pete
+	 */
 	void borrarTodoC() throws SQLException {
 		String insertQuery = "DELETE FROM class";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 			preparedStatement.executeUpdate();
 		}
 	}
-
+	/**
+	 * Lista todos los datos que contiene esta tabla
+	 * @throws SQLException Para que no pete
+	 */
 	public void mostrarC() throws SQLException {
 
 		Statement st = connection.createStatement();
@@ -76,7 +80,10 @@ public class ClassController {
 		rs.close();
 		st.close();
 	}
-
+	/**
+	 * Borra el dato que tenga el id seleccionado
+	 * @param id Parametro por el cual iniciara
+	 */
 	public void borrarC(String id) {
 		String insertQuery = "DELETE FROM class WHERE id_combo='" + id + "'";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {

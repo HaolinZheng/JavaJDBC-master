@@ -10,6 +10,10 @@ public class ACBMenu {
 		super();
 	}
 
+	/**
+	 * Menu principal
+	 * @return Numero de la eleccion
+	 */
 	public int mainMenu() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -43,7 +47,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9 && option != 10 && option != 11 && option != 12 && option != 13 && option != 14 && option != 15 && option != 16 && option != 17 && option != 18);
 		return option;
 	}
-
+	/**
+	 * Menu donde solen todos los "primary"
+	 * @return Numero de la eleccion
+	 */
 	public int primaryMenu() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -66,7 +73,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9);
 		return option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String casterMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -88,6 +98,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8);
 		return idP + "" + option;
 	}
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String defenderMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -109,7 +123,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String guardMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -133,10 +150,12 @@ public class ACBMenu {
 				e.printStackTrace();
 			}
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9 && option != 10 && option != 11 && option != 12);
-
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String medicMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -157,7 +176,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String sniperMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -179,7 +201,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String specialistMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -202,7 +227,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7 && option != 8 && option != 9);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String supporterMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -223,7 +251,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Submenu del "primary"
+	 * @return Eleccion del anterior + Numero de esta eleccion
+	 */
 	public String vanguardMenu(int idP) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -243,7 +274,10 @@ public class ACBMenu {
 		} while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6);
 		return idP + "" + option;
 	}
-
+	/**
+	 * Menu donde pediran que columna quieres
+	 * @return La elecion
+	 */
 	public String pedirO() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -251,7 +285,7 @@ public class ACBMenu {
 			System.out.println("position_op");
 			System.out.println("attack");
 			System.out.println("alter_op");
-			System.out.println("Escriba cualquier otra cosa para salir");
+			System.out.println("Escriba \"salir\" para salir");
 			System.out.println("Elige: ");
 			try {
 				optionS = br.readLine();
@@ -259,17 +293,13 @@ public class ACBMenu {
 				System.out.println("valor no vàlid");
 				e.printStackTrace();
 			}
-		} while (!optionS.equals("name") && !optionS.equals("position_op") && !optionS.equals("attack") && !optionS.equals("alter_op"));
+		} while (!optionS.equals("name") && !optionS.equals("position_op") && !optionS.equals("attack") && !optionS.equals("alter_op") && !optionS.equals("salir"));
 		return optionS;
 	}
-
-	public String pedir() throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Escriba con que quieres buscar");
-		optionS = br.readLine();
-		return optionS;
-	}
-
+	/**
+	 * Menu donde pediran que columna quieres
+	 * @return La elecion
+	 */
 	public String pedirS() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -288,10 +318,25 @@ public class ACBMenu {
 				System.out.println("valor no vàlid");
 				e.printStackTrace();
 			}
-		} while (!optionS.equals("operator_name") && !optionS.equals("name") && !optionS.equals("charge") && !optionS.equals("duration") && !optionS.equals("cost") && !optionS.equals("initial") && !optionS.equals("auto"));
+		} while (!optionS.equals("operator_name") && !optionS.equals("name") && !optionS.equals("charge") && !optionS.equals("duration") && !optionS.equals("cost") && !optionS.equals("initial") && !optionS.equals("auto") && !optionS.equals("salir"));
 		return optionS;
 	}
-
+	/**
+	 * Metodo donde pide por cual variable quieres cambiar
+	 * @return La variable que quieres cambiar
+	 * @throws IOException Para que no pete
+	 */
+	public String pedir() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Escriba con que quieres buscar");
+		optionS = br.readLine();
+		return optionS;
+	}
+	/**
+	 * Metodo donde pide por cual quieres cambiar
+	 * @return La variable que quieres cambiar
+	 * @throws IOException Para que no pete
+	 */
 	public String cambio() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Escriba como lo quieres cambiar");
